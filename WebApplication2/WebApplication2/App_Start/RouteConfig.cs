@@ -13,6 +13,8 @@ namespace WebApplication2
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("ahihi", "ahihi/", new { Controller = "Home", action = "About" });
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
