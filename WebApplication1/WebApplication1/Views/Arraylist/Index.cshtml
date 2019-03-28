@@ -1,0 +1,22 @@
+﻿@model Tuple<object[], int>
+@{
+    ViewBag.Title = "Index";
+    var buffer = Model.Item1;
+    var length = Model.Item2;
+}
+
+<h2>Index</h2>
+
+<table class = " table table-bordered" > 
+    <tr>
+        @for (int i = 1; i <= length;i++){
+           <th> @i </th>
+        }
+    </tr>
+    <tr>
+       @foreach (var item in buffer) { 
+            <th>@item</th>
+       }
+    </tr>
+</table>
+
