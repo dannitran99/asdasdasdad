@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebApplication1.Models.Student>
+
+<table id="myTable" class=" table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Ma SV</th>
+            <th>Ho va ten</th>
+            <th>Ngay sinh</th>
+            <th>Gioi tinh</th>
+            <th>Que quan</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+           @foreach (var item in Model.OrderBy(s => s.Fullname)) {
+               <tr>
+                   <td>@item.Code</td> 
+                   <td>@item.Fullname</td>
+                   <td>@item.Birtday.Value.ToShortDateString()</td>
+                   <td>@if (item.Gender == true) { 
+                       <span>Nam</span>
+                   }else{<span>Nu</span>}</td>
+                   <td>@item.Hometown</td>
+                   <td></td>
+                </tr>
+           }
+    </tbody>
+</table>
+@section Scripts{
+<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+        } );
+        </script>
+    }
+
+
+    @*@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birtday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hometown)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birtday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hometown)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>*@
