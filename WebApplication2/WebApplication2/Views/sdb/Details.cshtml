@@ -1,0 +1,58 @@
+﻿@model WebApplication2.SoDauBai
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SoDauBai</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiangVien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiangVien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Noidung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noidung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanXet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanXet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeXuat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
