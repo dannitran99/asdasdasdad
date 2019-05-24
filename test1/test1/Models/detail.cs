@@ -14,11 +14,20 @@ namespace test1.Models
     
     public partial class detail
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public detail()
+        {
+            this.contacts = new HashSet<contact>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public int Phone { get; set; }
         public string Subject { get; set; }
         public string Email { get; set; }
         public string Status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<contact> contacts { get; set; }
     }
 }

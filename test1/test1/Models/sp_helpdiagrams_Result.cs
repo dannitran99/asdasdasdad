@@ -10,16 +10,13 @@
 namespace test1.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class contact
+    public partial class sp_helpdiagrams_Result
     {
+        public string Database { get; set; }
+        public string Name { get; set; }
         public int ID { get; set; }
-        public Nullable<int> ContactID { get; set; }
-        public string Message { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
-        public string EmployeeName { get; set; }
-    
-        public virtual detail detail { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

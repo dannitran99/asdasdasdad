@@ -4,7 +4,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+<style>
+    input[type="reset"] {
+    margin-top: 25px;
+    margin - right: 33px;
+    margin-left: 1px;
+}
+</style> 
+
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -120,37 +127,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h6>Please fill this form to contact with us.</h6>
                     <form action="#" method="post">
                      
-                            @Html.LabelFor(model => model.Name, "Name", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.Name, "Name", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Name)
                                 @Html.ValidationMessageFor(model => model.Name)
                             </div>
-                            @Html.LabelFor(model => model.Phone, "Phone", new { @class = "control-label col-md-2" })
+                      
+                            @Html.LabelFor(model => model.Phone, "Phone", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Phone )
                                 @Html.ValidationMessageFor(model => model.Phone)
                             </div>
-                        @Html.LabelFor(model => model.Email, "Email", new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Email, "Email", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Email)
                             @Html.ValidationMessageFor(model => model.Email)
                         </div>
-                        @Html.LabelFor(model => model.Subject, "Subject", new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Subject, "Subject", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Subject)
                             @Html.ValidationMessageFor(model => model.Subject)
                         </div>
-                    
-                      
-                       
-                        @*@*<div class="col-md-6 col-sm-6 contact_left_grid">
-                            <input type="text" name="Name" placeholder="Name" required="">
-                            <input type="email" name="Email" placeholder="Email" required="">
-                        </div>*@
-                   
-                         <input type="submit" value="Submit">
-                        <input type="reset" value="Clear">
-                    </form>
+                       @Html.Label("message", "Message", new { @class = "col-md-6 col-sm-6 contact_left_grid" })
+                        <div class="col-md-10">
+                            @Html.TextArea("message")
+                            @Html.ValidationMessage("message")
+                        </div>
+                     
+                        <div class="col-md-6 col-sm-6 contact_left_grid">
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Clear">
+                        </div>  
+</form>
                 </div>
                 <div class="col-md-5 contact-left">
                     <h6>Contact Info</h6>

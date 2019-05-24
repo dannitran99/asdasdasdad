@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using test1.Models;
+using System.Transactions;
 
 namespace test1.Controllers
 {   
@@ -21,22 +22,35 @@ namespace test1.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult Create(detail model)
+    
+        public ActionResult Create(detail contact, string message, string Feedback_Detail)
         {
-            ValidateBubleTea(model);
             if (ModelState.IsValid)
-            {
-                db.details.Add(model);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(model);
+                using (var scope = new TransactionScope())
+                {
+                    contact.Status = "0";
+                    db.details.Add(contact);
+                    db.SaveChanges();
+
+                    var detail = new contact();
+                    detail.ContactID = contact.ID;
+                    detail.CreateTime = DateTime.Now;
+                    detail.Message = message;
+                  
+                                      
+                    db.contacts.Add(detail);
+                    db.SaveChanges();
+
+                    scope.Complete();
+                    return View(contact);
+                }
+
+            return View(contact);
         }
 
-        public void ValidateBubleTea(detail model)
-        {
-        }
+  
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
